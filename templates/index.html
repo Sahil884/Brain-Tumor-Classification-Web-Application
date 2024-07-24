@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Tumor Classification</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<header>
+  <h1>Brain Tumor Classification Using Deep Learning</h1>
+</header>
+<body>
+  
+  <form action='/predict' method="POST" enctype="multipart/form-data" accept=".png, .jpg, .jpeg">
+    {{form.hidden_tag()}}
+    <div class="big">
+        <div class="container">
+          <div class="file">
+            {{form.file()}}
+          </div>
+          <div class="img">
+            <center><img src="{{ url_for('send_uploaded_file', filename=image) }}"></center>
+            
+          </div>
+
+          <div class="submit">
+            {{form.submit()}}
+          </div>
+      </div>
+    </div>
+    
+  </form>
+
+  <center><h2> {{ res }} </h2></center>
+</body>
+</html>
